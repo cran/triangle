@@ -17,23 +17,24 @@ require(RUnit)
 #defaultPath <- chartr("/", "//", paste(.path.package("triangle"), "/RUnit", sep=""))
 
 ################# used in development ##########################################
-defaultPath <- "c:////program files//r//triangle//RUnit"                       #
-source("c:////program files//r//triangle//R//qtriangle.R")                     #
-source("c:////program files//r//triangle//R//dtriangle.R")                     #
-source("c:////program files//r//triangle//R//rtriangle.R")                     #
-source("c:////program files//r//triangle//R//ptriangle.R")                     #
+defaultPath <- file.path("c:", "program files", "r", "triangle")
+source(file.path(defaultPath, "R", "qtriangle.R"))
+source(file.path(defaultPath, "R", "dtriangle.R"))
+source(file.path(defaultPath, "R", "rtriangle.R"))
+source(file.path(defaultPath, "R", "ptriangle.R"))
 
 testSuite.triangle <- defineTestSuite("triangle",
-  dirs=defaultPath)
+  dirs=file.path(defaultPath, "RUnit"),
+  testFileRegexp="^runit_[rpqd]triangle\.[rR]$")
 
 testResult <- runTestSuite(testSuite.triangle)
 
 ################# used in development ##########################################
-                                                                               #
-## warning expected about gcc compiler                                         #
-suppressWarnings(printHTMLProtocol(testResult,                                 #
-  fileName=paste(defaultPath, "//Test Results.html", sep="")))                 #
-                                                                               #
-browseURL(paste(defaultPath, "//Test Results.html",sep=""),                    #
-          browser=getOption("browser"))                                        #
+
+htmlFile <- file.path(defaultPath, "RUnit", "Test Results.html")
+
+## warning expected about gcc compiler
+suppressWarnings(printHTMLProtocol(testResult, fileName=htmlFile))
+
+browseURL(htmlFile, browser=getOption("browser"))
 

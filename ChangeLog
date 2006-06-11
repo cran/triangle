@@ -1,0 +1,6 @@
+10/20/06
+
+Changed the rtraingle and qtriangle functions in response to an excellent bug
+report from Dr Michael Scroggie (Michael.Scroggie@dse.vic.gov.au).  The bug
+involved the conditional logic in the inverse CDF so that when the "a" and "c"
+parameters were equal, rtriangle would return a vector of "a".

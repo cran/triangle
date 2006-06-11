@@ -39,4 +39,14 @@ test.qtriangle <- function(){
   checkEquals(qtriangle(.5, 0, Inf, 1), NaN)
   checkEquals(qtriangle(.5, -Inf, Inf, 1), NaN)
   checkEquals(qtriangle(.5, 0, Inf, Inf), NaN)
+
+  # From a Bug Report, Michael.Scroggie@dse.vic.gov.au, Thursday 10/19/06
+  checkTrue(!all(0 == qtriangle(runif(10), 0, 1, 0)))
+  checkTrue(!all(5 == qtriangle(runif(10), 2, 5, 5)))
+  checkTrue(all(1 == qtriangle(runif(10), 1, 1, 1)))
+  checkTrue(all(-1 == qtriangle(runif(10), -1, -1, -1)))
+
+  checkEqualsNumeric(qtriangle(ptriangle(.5, 0, 1, 0), 0, 1, 0), 0.5)
+  checkEqualsNumeric(qtriangle(ptriangle(3, 2, 5, 5), 2, 5, 5), 3)
+  checkEqualsNumeric(qtriangle(ptriangle(5, 2, 5, 5), 2, 5, 5), 5)
 }

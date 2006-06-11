@@ -14,11 +14,15 @@
 #   First, exclude situations which are impossible with the function definition
 #   Next, define the value of the function on the various intervals
 #
+# Changes:
+# 10/20/06 changed the i,j logic based on a bug report from
+#          Michael.Scroggie@dse.vic.gov.au, Thursday 10/19/06
+#
 ################################################################################
 
 rtriangle <- function(n=1, a=0, b=1, c=0.5){
   if(length(n)>1) n <- length(n)
-  if(n<1 | is.na(n)) stop("invalid arguments")
+  if(n<1 | is.na(n)) stop(paste("invalid argument: n =", n))
   n <- floor(n)
   if(any(is.na(c(a,b,c)))) return(rep(NaN, times=n)) # to match behavior of runif
   if(a > c | b < c) return(rep(NaN, times=n)) # to match behavior of runif
@@ -26,10 +30,14 @@ rtriangle <- function(n=1, a=0, b=1, c=0.5){
   
   p <- runif(n)
   
-  i <- which((a + sqrt(p * (b - a)*(c - a))) <= c)
-  #print(i)
-  j <- which((b - sqrt((1 - p) * (b - a) * (b - c))) > c)
-  #print(j)
+  if(a != c){
+    # if a = c then i is always true
+    i <- which((a + sqrt(p * (b - a)*(c - a))) <= c)
+    j <- which((b - sqrt((1 - p) * (b - a) * (b - c))) > c)
+  } else {
+    i <- which((a + sqrt(p * (b - a)*(c - a))) < c)
+    j <- which((b - sqrt((1 - p) * (b - a) * (b - c))) >= c)
+  }
   if(length(i)!=0)
     p[i] <- a + sqrt(p[i] * (b - a) * (c - a))
   if(length(j)!=0)
