@@ -14,6 +14,10 @@
 #   First, exclude situations which are impossible with the function definition
 #   Next, define the value of the function on the various intervals
 #
+# Changes:
+# 10/20/06 changed the logic when a=c based on a bug report from
+#          Michael.Scroggie@dse.vic.gov.au, Thursday 10/19/06
+#
 ################################################################################
 
 qtriangle <- function(p, a=0, b=1, c=.5) {
@@ -23,6 +27,7 @@ qtriangle <- function(p, a=0, b=1, c=.5) {
   c1 <- length(c)
   
   qTest <- function(X){
+    # X = c(p, a, b, c)
     if(any(is.na(X))){ # is.na is TRUE for NA, NaN, and FALSE
       if(any(is.nan(X))) return(NaN) # to conform to qunif
       else return(NA) # to conform to qunif
@@ -34,11 +39,17 @@ qtriangle <- function(p, a=0, b=1, c=.5) {
       return(NaN) # to conform to behavior of qunif
     } else if(any(is.infinite(X))){
       return(NaN)
-    } else if((X[2] + sqrt(X[1]*(X[3]-X[2])*(X[4]-X[2]))) <= X[4]){
+    } else if((X[2] != X[4] &&
+               (X[2] + sqrt(X[1]*(X[3]-X[2])*(X[4]-X[2]))) <= X[4]) |
+              (X[2] == X[4] &&
+               (X[2] + sqrt(X[1]*(X[3]-X[2])*(X[4]-X[2]))) < X[4])){
       return(X[2] + sqrt(X[1]*(X[3]-X[2])*(X[4]-X[2])))
-    } else if((X[3] - sqrt((1-X[1])*(X[3]-X[2])*(X[3]-X[4]))) > X[4]){
+    } else if((X[2] != X[4] &&
+               (X[3] - sqrt((1-X[1])*(X[3]-X[2])*(X[3]-X[4]))) > X[4]) |
+              (X[2] == X[4] &&
+               (X[3] - sqrt((1-X[1])*(X[3]-X[2])*(X[3]-X[4]))) >= X[4])){
       return(X[3] - sqrt((1-X[1])*(X[3]-X[2])*(X[3]-X[4])))
-    }
+    } else stop("Unexpected Result")
   }
 
   k <- max(p1, a1, b1, c1)
