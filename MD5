@@ -1,0 +1,13 @@
+0302b3ba8ea1b1468783fc4360f72e3f *ChangeLog
+942f5e970979dbc04bc39d0a46b3e08f *DESCRIPTION
+9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
+b572a4c6b1657828dbc4369d67c0d67d *R/dtriangle.R
+9f9b5d68842102750a1218128d1e08ae *R/ptriangle.r
+0ee008cb559450ef376c613d8f6dadd3 *R/qtriangle.R
+97ba6eff60bf76dc15492523ef1e4dab *R/rtriangle.r
+92dea7d78fc1420c401a7a32c2a7beb2 *RUnit/runitTestSuite_triangle.R
+20ff01d56e46a421739ae253b1d4b43a *RUnit/runit_dtriangle.r
+7becef117705ff8d5678bfe79b27aa90 *RUnit/runit_ptriangle.r
+ff56339f2bba55f7f00993c08c2ac7dd *RUnit/runit_qtriangle.r
+e73171b63ac034a98a9e63f069aa18af *RUnit/runit_rtriangle.r
+ec37a68e4a066e510badaf1faf267c83 *man/triangle.Rd
