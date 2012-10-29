@@ -4,3 +4,10 @@ Changed the rtraingle and qtriangle functions in response to an excellent bug
 report from Dr Michael Scroggie (Michael.Scroggie@dse.vic.gov.au).  The bug
 involved the conditional logic in the inverse CDF so that when the "a" and "c"
 parameters were equal, rtriangle would return a vector of "a".
+
+Version 0.4
+  Changed the license to GPL >= 2 according to a Kurt Hornik email
+
+Version 0.5
+  Changed the filenames to be portable
+
