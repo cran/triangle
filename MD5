@@ -1,10 +1,10 @@
-ee4024cd9b4dfb512c02c12e0c9043e1 *ChangeLog
-522d97aa1660912b69e763a8f096ec9d *DESCRIPTION
+8bb02c2ba668766837277070dffee7a2 *ChangeLog
+1aa049675d12f43f7df04e4a784c9645 *DESCRIPTION
 464e047df102d11f8baf5a54ef2c5488 *NAMESPACE
-c1c39b5a7a4f548ca5a96fdde1a069be *R/dtriangle.R
+533d6b03cba32dcc273a8861f6e07662 *R/dtriangle.R
 bb79e0e46563e7650848d00664886be5 *R/ltriangle.r
-541dcca7ee3c720f1f963ba6d74ca7bf *R/ptriangle.r
-f5c4abe425e1d04951d74d0608a5b228 *R/qtriangle.R
+d8004846e477d79528d48b4e2ec2f6fc *R/ptriangle.r
+7b00a473fc0b6ad90534603c12764514 *R/qtriangle.R
 f16e9adf1741526782e49b047086a831 *R/rtriangle.r
 5485dda45154ee1e563254c35fcc6401 *man/ltriangle.Rd
 8ab073ac237d0985bc134c539ca98606 *man/triangle-package.Rd
