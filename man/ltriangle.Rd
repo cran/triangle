@@ -8,17 +8,19 @@
 \alias{qltriangle}
 \title{The Log-Triangle Distribution}
 \usage{
-rltriangle(n = 1, a = 1, b = 100, c = 10^((log10(a) + log10(b))/2),
-  logbase = 10)
+rltriangle(
+  n = 1,
+  a = 1,
+  b = 100,
+  c = 10^((log10(a) + log10(b))/2),
+  logbase = 10
+)
 
-dltriangle(x, a = 1, b = 100, c = 10^((log10(a) + log10(b))/2),
-  logbase = 10)
+dltriangle(x, a = 1, b = 100, c = 10^((log10(a) + log10(b))/2), logbase = 10)
 
-pltriangle(q, a = 1, b = 100, c = 10^((log10(a) + log10(b))/2),
-  logbase = 10)
+pltriangle(q, a = 1, b = 100, c = 10^((log10(a) + log10(b))/2), logbase = 10)
 
-qltriangle(p, a = 1, b = 100, c = 10^((log10(a) + log10(b))/2),
-  logbase = 10)
+qltriangle(p, a = 1, b = 100, c = 10^((log10(a) + log10(b))/2), logbase = 10)
 }
 \arguments{
 \item{n}{number of observations. If \code{length(n) > 1}, the length is taken to be the number required.}
@@ -60,7 +62,7 @@ dltriangle(10, 1, 100, 10) # 2/(log10(b)-log10(a)) = 1
 qltriangle(pltriangle(10)) # 10
 }
 \references{
-Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The New S Language}.  Wadsworth \& Brooks/Cole.
+Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) \emph{The New S Language}.  Wadsworth & Brooks/Cole.
 }
 \seealso{
 \code{\link{.Random.seed}} about random number generation,
